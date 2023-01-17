@@ -1,4 +1,5 @@
 import Search from "../../components/search";
+
 const Homepage = ()=> {
     return (
         <div className="homepage">
