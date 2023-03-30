@@ -1,0 +1,30 @@
+.favorites-wrapper {
+    flex-direction: column;
+    display: flex;
+}
+
+.favorites {
+    display: flex;
+    gap: 25px;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+
+.items {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.loading {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.favorites-title {
+    color: #fa6400;
+    font-weight: 700;
+    
+}
