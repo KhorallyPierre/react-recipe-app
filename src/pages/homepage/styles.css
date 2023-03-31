@@ -11,10 +11,12 @@
 }
 
 .items {
+    margin-top: 20px;
     display: flex;
     gap: 25px;
     margin-bottom: 30px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .loading {

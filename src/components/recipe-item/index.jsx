@@ -2,7 +2,7 @@ import './styles.css'
 import React from 'react';
 
 const RecipeItem = (props) =>{
-    const {id,image, title} = props;
+    const {id,image, title, addToFavorites} = props;
  return (
     <div key={id} className="recipe-item">
         <div>
@@ -10,7 +10,7 @@ const RecipeItem = (props) =>{
         </div>
         <p> {title} </p>
 
-        <button> Add to favorites </button>
+        <button type="button" onClick={addToFavorites}> Add to favorites </button>
     </div>
  )
 }

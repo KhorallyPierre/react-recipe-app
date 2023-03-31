@@ -30,7 +30,7 @@ const Search = (props)=> {
     }
     return (
         <form onSubmit={handleSubmit} className="Search">
-            <input name="search" onChange={handleInputValue} value={inputValue} placeholder="Search Recipes" id="search"/>
+            <input name="search" onChange={handleInputValue} value={inputValue} placeholder="What's for dinner?" id="search"/>
             <button type="submit"> Search </button>
         </form>
     )

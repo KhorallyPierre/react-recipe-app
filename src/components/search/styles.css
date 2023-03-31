@@ -2,10 +2,13 @@
     display: flex;
     gap: 20px;
     justify-content: center;
+    text-align: left;
 }
 
 .Search input {
-    padding: 10px 50px;
+    padding-right: 550px;
+    text-align: left;
+    padding-left: 10px;
 }
 
 .Search button {
