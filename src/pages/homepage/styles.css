@@ -4,10 +4,15 @@
 }
 
 .favorites {
-    display: flex;
-    gap: 25px;
     overflow: auto;
     margin-bottom: 30px;
+    margin-top: 20px;
+    display: flex;
+    grid-gap: 25px;
+    gap: 25px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .items {

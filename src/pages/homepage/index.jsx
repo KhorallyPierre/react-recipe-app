@@ -2,7 +2,9 @@ import Search from "../../components/search";
 import { useState } from "react";
 import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
+import FavoriteItem from "../../components/favorite-item";
 import React from "react";
+import { useEffect } from "react";
 
 const dummydata = "dummydata";
 
@@ -34,7 +36,6 @@ const Homepage = () => {
         /// set the recipes state
         setRecipes(results);
       }
-      console.log(result);
     }
     getRecipes();
   };
@@ -54,14 +55,37 @@ const Homepage = () => {
     }
   };
 
-  console.log(loadingState, recipes, "loadingState, recipes");
+  useEffect(()=> {
+    const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(localStorage.getItem('favorites'))
+    setFavorites(extractFavoritesFromLocalStorageOnPageLoad)
+  }, [])
+
+
+  
   return (
     <div className="homepage">
       <Search
         getDataFromSearchComponent={getDataFromSearchComponent}
         dummydatacopy={dummydata}
       />
+      {/* show favorite items */}
 
+      <div className="favorites-wrapper"> 
+      
+        <h1 className="favorites-title"> Favorites</h1>
+        <div className="favorites">
+            {
+                favorites && favorites.length > 0 ? 
+                favorites.map(item => (
+                    <FavoriteItem
+                    id={item.id}
+                    image={item.image}
+                    title={item.title}
+                    />
+                )): null
+            }
+        </div>
+      </div>
       {/* {show loading state} */}
 
       {loadingState && (
