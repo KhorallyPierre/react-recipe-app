@@ -46,7 +46,9 @@ const Homepage = () => {
     if(index === -1){
         copyFavorites.push(getCurrentRecipeItem)
         setFavorites(copyFavorites)
-        
+        //save the favorites in local storage
+        localStorage.setItem('favorites', JSON.stringify(copyFavorites))
+
     }else{
         alert('Pst.. item already in favorites')
     }
