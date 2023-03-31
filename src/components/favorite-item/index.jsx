@@ -2,7 +2,7 @@ import './styles.css'
 import React from 'react';
 
 const FavoriteItem = (props) =>{
-    const {id,image, title} = props;
+    const {id,image, title, removeFromFavorites} = props;
  return (
     <div key={id} className="favorite-item">
         <div>
@@ -10,7 +10,7 @@ const FavoriteItem = (props) =>{
         </div>
         <p> {title} </p>
 
-        <button type="button"> Remove from favorites </button>
+        <button type="button" onClick={removeFromFavorites}> Remove from favorites </button>
     </div>
  )
 }

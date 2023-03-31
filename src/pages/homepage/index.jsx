@@ -15,7 +15,7 @@ const Homepage = () => {
   const [recipes, setRecipes] = useState([]);
 
   //favorites data state
-  const[favorites,setFavorites] = useState([])
+  const [favorites, setFavorites] = useState([]);
   const getDataFromSearchComponent = (getData) => {
     // keep the loading state as true before we are calling the api
     setLoadingState(true);
@@ -43,25 +43,35 @@ const Homepage = () => {
   const addToFavorites = (getCurrentRecipeItem) => {
     let copyFavorites = [...favorites];
 
-    const index =copyFavorites.findIndex(item => item.id === getCurrentRecipeItem.id)
-    if(index === -1){
-        copyFavorites.push(getCurrentRecipeItem)
-        setFavorites(copyFavorites)
-        //save the favorites in local storage
-        localStorage.setItem('favorites', JSON.stringify(copyFavorites))
-
-    }else{
-        alert('Pst.. item already in favorites')
+    const index = copyFavorites.findIndex(
+      (item) => item.id === getCurrentRecipeItem.id
+    );
+    if (index === -1) {
+      copyFavorites.push(getCurrentRecipeItem);
+      setFavorites(copyFavorites);
+      //save the favorites in local storage
+      localStorage.setItem("favorites", JSON.stringify(copyFavorites));
+    } else {
+      alert("Pst.. item already in favorites");
     }
   };
 
-  useEffect(()=> {
-    const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(localStorage.getItem('favorites'))
-    setFavorites(extractFavoritesFromLocalStorageOnPageLoad)
-  }, [])
+  const removeFromFavorites = (getCurrentId) => {
+    let copyFavorites = [...favorites];
 
+    copyFavorites = copyFavorites.filter((item) => item.id !== getCurrentId);
 
-  
+    setFavorites(copyFavorites);
+    localStorage.setItem("favorites", JSON.stringify(copyFavorites));
+  };
+
+  useEffect(() => {
+    const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(
+      localStorage.getItem("favorites")
+    );
+    setFavorites(extractFavoritesFromLocalStorageOnPageLoad);
+  }, []);
+
   return (
     <div className="homepage">
       <Search
@@ -70,20 +80,19 @@ const Homepage = () => {
       />
       {/* show favorite items */}
 
-      <div className="favorites-wrapper"> 
-      
+      <div className="favorites-wrapper">
         <h1 className="favorites-title"> Favorites</h1>
         <div className="favorites">
-            {
-                favorites && favorites.length > 0 ? 
-                favorites.map(item => (
-                    <FavoriteItem
-                    id={item.id}
-                    image={item.image}
-                    title={item.title}
-                    />
-                )): null
-            }
+          {favorites && favorites.length > 0
+            ? favorites.map((item) => (
+                <FavoriteItem
+                  removeFromFavorites={() => removeFromFavorites(item.id)}
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                />
+              ))
+            : null}
         </div>
       </div>
       {/* {show loading state} */}
