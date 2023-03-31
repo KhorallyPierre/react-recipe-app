@@ -2,7 +2,7 @@ import Search from "../../components/search";
 import {useState} from 'react';
 import './styles.css'
 import RecipeItem from "../../components/recipe-item";
-
+import React from 'react';
 const dummydata = "dummydata"
 
 const Homepage = ()=> {

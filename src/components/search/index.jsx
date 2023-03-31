@@ -1,5 +1,6 @@
 import { useState} from 'react';
 import './styles.css';
+import React from 'react';
 
 // state management:
 //usestate hook allows values to be changed whenever we want

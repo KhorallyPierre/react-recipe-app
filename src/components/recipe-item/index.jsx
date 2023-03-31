@@ -1,4 +1,5 @@
 import './styles.css'
+import React from 'react';
 
 const RecipeItem = (props) =>{
     const {id,image, title} = props;
