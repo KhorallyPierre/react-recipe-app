@@ -5,9 +5,24 @@ import RecipeItem from "../../components/recipe-item";
 import FavoriteItem from "../../components/favorite-item";
 import React from "react";
 import { useEffect } from "react";
+import { useReducer } from "react";
 
 const dummydata = "dummydata";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "filterFavorites":
+      return {
+        ...state,
+        filteredValue : action.value
+      };
+    default:
+      return state;
+  }
+};
+const initialState = {
+  filteredValue: " ",
+};
 const Homepage = () => {
   //loading state
   const [loadingState, setLoadingState] = useState(false);
@@ -16,6 +31,15 @@ const Homepage = () => {
 
   //favorites data state
   const [favorites, setFavorites] = useState([]);
+
+  // checking state for api to clear search bar
+
+  const [apiCalledSuccess, setApiCalledSuccess] = useState(false);
+
+  // use reducer functionality
+
+  const [filteredState, dispatch] = useReducer(reducer, initialState);
+
   const getDataFromSearchComponent = (getData) => {
     // keep the loading state as true before we are calling the api
     setLoadingState(true);
@@ -35,6 +59,8 @@ const Homepage = () => {
         setLoadingState(false);
         /// set the recipes state
         setRecipes(results);
+        // when api results are provided
+        setApiCalledSuccess(true);
       }
     }
     getRecipes();
@@ -72,19 +98,28 @@ const Homepage = () => {
     setFavorites(extractFavoritesFromLocalStorageOnPageLoad);
   }, []);
 
+ // filter through favorites
+
+ const filteredFavoritesItems = favorites.filter(item => 
+    item.title.toLowerCase().includes(filteredState.filteredValue))
   return (
     <div className="homepage">
       <Search
         getDataFromSearchComponent={getDataFromSearchComponent}
         dummydatacopy={dummydata}
+        apiCalledSuccess={apiCalledSuccess}
+        setApiCalledSuccess={setApiCalledSuccess}
       />
       {/* show favorite items */}
 
       <div className="favorites-wrapper">
         <h1 className="favorites-title"> Favorites</h1>
+        <div className="search-favorites">
+          <input onChange={(event)=> dispatch({type : 'filterFavorites', value : event.target.value})} value={filteredState.filteredValue} name="searchfavorites" placeholder="Search Favorites" />
+        </div>
         <div className="favorites">
-          {favorites && favorites.length > 0
-            ? favorites.map((item) => (
+          {filteredFavoritesItems && favorites.length > 0
+            ? filteredFavoritesItems.map((item) => (
                 <FavoriteItem
                   removeFromFavorites={() => removeFromFavorites(item.id)}
                   id={item.id}
