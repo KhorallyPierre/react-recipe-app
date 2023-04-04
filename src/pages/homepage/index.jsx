@@ -14,7 +14,7 @@ const reducer = (state, action) => {
     case "filterFavorites":
       return {
         ...state,
-        filteredValue : action.value
+        filteredValue: action.value,
       };
     default:
       return state;
@@ -98,10 +98,11 @@ const Homepage = () => {
     setFavorites(extractFavoritesFromLocalStorageOnPageLoad);
   }, []);
 
- // filter through favorites
+  // filter through favorites
 
- const filteredFavoritesItems = favorites.filter(item => 
-    item.title.toLowerCase().includes(filteredState.filteredValue))
+  const filteredFavoritesItems = favorites.filter((item) =>
+    item.title.toLowerCase().includes(filteredState.filteredValue)
+  );
   return (
     <div className="homepage">
       <Search
@@ -115,7 +116,14 @@ const Homepage = () => {
       <div className="favorites-wrapper">
         <h1 className="favorites-title"> Favorites</h1>
         <div className="search-favorites">
-          <input onChange={(event)=> dispatch({type : 'filterFavorites', value : event.target.value})} value={filteredState.filteredValue} name="searchfavorites" placeholder="Search Favorites" />
+          <input
+            name="searchfavorites"
+            value={filteredState.filteredValue}
+            placeholder="Search Favorites"
+            onChange={(event) =>
+                dispatch({ type: 'filterFavorites', value: event.target.value })
+            }
+        />
         </div>
         <div className="favorites">
           {filteredFavoritesItems && favorites.length > 0
