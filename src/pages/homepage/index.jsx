@@ -6,6 +6,7 @@ import FavoriteItem from "../../components/favorite-item";
 import React from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
+import { useCallback } from "react";
 
 const dummydata = "dummydata";
 
@@ -65,7 +66,7 @@ const Homepage = () => {
     }
     getRecipes();
   };
-
+  
   const addToFavorites = (getCurrentRecipeItem) => {
     let copyFavorites = [...favorites];
 
@@ -103,6 +104,20 @@ const Homepage = () => {
   const filteredFavoritesItems = favorites.filter((item) =>
     item.title.toLowerCase().includes(filteredState.filteredValue)
   );
+
+  const renderRecipes = useCallback(() => {
+    if (recipes && recipes.length > 0) {
+      recipes.map((item) => (
+        <RecipeItem
+          addToFavorites={() => addToFavorites(item)}
+          id={item.id}
+          image={item.image}
+          title={item.title}
+        />
+      ));
+    }
+  }, [recipes, addToFavorites]);
+
   return (
     <div className="homepage">
       <Search
@@ -121,9 +136,9 @@ const Homepage = () => {
             value={filteredState.filteredValue}
             placeholder="Search Favorites"
             onChange={(event) =>
-                dispatch({ type: 'filterFavorites', value: event.target.value })
+              dispatch({ type: "filterFavorites", value: event.target.value })
             }
-        />
+          />
         </div>
         <div className="favorites">
           {filteredFavoritesItems && favorites.length > 0
@@ -149,7 +164,8 @@ const Homepage = () => {
       {/* {map through all the recipes} */}
 
       <div className="items">
-        {recipes && recipes.length > 0
+        {renderRecipes()}
+        {/* {recipes && recipes.length > 0
           ? recipes.map((item) => (
               <RecipeItem
                 addToFavorites={() => addToFavorites(item)}
@@ -158,7 +174,7 @@ const Homepage = () => {
                 title={item.title}
               />
             ))
-          : null}
+          : null} */}
       </div>
     </div>
   );
