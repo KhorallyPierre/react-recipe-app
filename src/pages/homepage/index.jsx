@@ -96,11 +96,14 @@ const Homepage = () => {
     const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(
       localStorage.getItem("favorites")
     );
-    setFavorites(extractFavoritesFromLocalStorageOnPageLoad);
+    if (extractFavoritesFromLocalStorageOnPageLoad != null){
+      setFavorites(extractFavoritesFromLocalStorageOnPageLoad);
+    }
+    
   }, []);
 
   // filter through favorites
-
+console.log(favorites, "faves")
   const filteredFavoritesItems = favorites.filter((item) =>
     item.title.toLowerCase().includes(filteredState.filteredValue)
   );
