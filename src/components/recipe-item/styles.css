@@ -1,19 +1,19 @@
 .recipe-item{
     border: 1px solid red;
     padding: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(250,100,0,1);
+    box-shadow: 0px 0px 10px 0px rgb(223, 77, 196);
     background-color: #fff;
 }
 
 .recipe-item p{
-    color: #fa6400;
+    color:  rgb(223, 77, 196);
     font-weight: 700;
     font-size: 20px;
     margin: 12px 0 12 0px;
 }
 
 .recipe-item button{
-    background-color: #fa6400;
+    background-color: rgb(223, 77, 196);
     border: 1px solid transparent;
     border-radius: 0.25rem;
     box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0;
@@ -25,4 +25,9 @@
     line-height: 1.23;
     margin: 0;
 
+}
+
+.addToFaves {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 2%);
+    
 }

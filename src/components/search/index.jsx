@@ -11,7 +11,7 @@ import { useEffect } from "react";
 const Search = (props) => {
   const { getDataFromSearchComponent, apiCalledSuccess, setApiCalledSuccess } =
     props;
-  console.log(props);
+
   // input value is initual value of input, setInputValue is a function
   const [inputValue, setInputValue] = useState(""); //initial value of state, which is an empty string for a search bar
 
@@ -20,7 +20,7 @@ const Search = (props) => {
     //set the updated stateß
     setInputValue(value);
   };
-  console.log(inputValue);
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();

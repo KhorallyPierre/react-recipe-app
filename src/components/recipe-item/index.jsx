@@ -10,7 +10,7 @@ const RecipeItem = (props) =>{
         </div>
         <p> {title} </p>
 
-        <button type="button" onClick={addToFavorites}> Add to favorites </button>
+        <button className="addToFaves" type="button" onClick={addToFavorites}> Add to favorites </button>
     </div>
  )
 }

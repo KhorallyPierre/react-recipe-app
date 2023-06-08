@@ -1,8 +1,7 @@
-import Search from "../../components/search";
 import { useState } from "react";
 import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
-// import FavoriteItem from "../../components/favorite-item";
+import FavoriteItem from "../../components/favorite-item";
 import React from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
@@ -24,7 +23,7 @@ const reducer = (state, action) => {
 const initialState = {
   filteredValue: "",
 };
-const Homepage = () => {
+const Favorites = () => {
   //loading state
   const [loadingState, setLoadingState] = useState(false);
   // save results that we recieve from api
@@ -45,11 +44,9 @@ const Homepage = () => {
     // keep the loading state as true before we are calling the api
     setLoadingState(true);
 
-
     //calling api for food data
 
     async function getRecipes() {
-
       const apiResponse = await fetch(
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=5a889f5e8d314bbda815babf720da808&query=${getData}`
       );
@@ -68,7 +65,6 @@ const Homepage = () => {
         // create a recipe not found component to be rendered
         // <notFound/>
       }
-
     }
     getRecipes();
   };
@@ -113,85 +109,85 @@ const Homepage = () => {
     item.title.toLowerCase().includes(filteredState.filteredValue)
   );
 
-  const renderRecipes = useCallback(() => {
-    console.log("renderRecipes", recipes)
-    if (recipes && recipes.length > 0) {
-
-      let recipeItems = recipes.map((item) => (
-        <RecipeItem
-          addToFavorites={() => addToFavorites(item)}
-          id={item.id}
-          image={item.image}
-          title={item.title}
-
-        />
-      ));
-      console.log('recipe results', recipeItems)
-      return recipeItems;
-    } else if (recipes.length === 0 && apiCalledSuccess) {
-      // console.log(recipes.length === 0, "when recipe is less than 0")
-      // console.log("when api call has been successfully made", apiCalledSuccess)
-      let noResult = "this is fucking awful.sdfsafasd"
-      return (<h1>{noResult}</h1>)
-    } else {
-      // return (<h1>{JSON.stringify(recipes)}</h1>)
+  const renderRecipes = useCallback(
+    () => {
+      console.log("renderRecipes", recipes);
+      if (recipes && recipes.length > 0) {
+        let recipeItems = recipes.map((item) => (
+          <RecipeItem
+            addToFavorites={() => addToFavorites(item)}
+            id={item.id}
+            image={item.image}
+            title={item.title}
+          />
+        ));
+        console.log("recipe results", recipeItems);
+        return recipeItems;
+      } else if (recipes.length === 0 && apiCalledSuccess) {
+        // console.log(recipes.length === 0, "when recipe is less than 0")
+        // console.log("when api call has been successfully made", apiCalledSuccess)
+        let noResult = "this is fucking awful.sdfsafasd";
+        return <h1>{noResult}</h1>;
+      } else {
+        // return (<h1>{JSON.stringify(recipes)}</h1>)
+      }
     }
-
-  }
     // ,[recipes, addToFavorites]
   );
 
   return (
-    <div className="homepage">
-      <div className="socialLinks"> 
+    <div className="favespage">
+      {/* show favorite items */}
+      <a href="/">
+        {" "}
+        <div className="socialLinks"> 
        <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
        <a href="https://www.instagram.com/simplyrecipes/?hl=en/"> <img className="icons" src="images/icons8-instagram-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.pinterest.com/natashaskitchen/the-most-popular-recipes-on-pinterest//"> <img className="icons" src="images/icons8-pinterest-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </a>  
       </div>
-     <a href="/favorites"> <button className="favoritesButton"> My Favorite Recipes </button> </a>
-      <div className="searchbarBackground">
-        <div className="title-input-container">
-          <h1 className="homepage-title"> Find a Recipe</h1>
-          <Search 
-            getDataFromSearchComponent={getDataFromSearchComponent}
-            dummydatacopy={dummydata}
-            apiCalledSuccess={apiCalledSuccess}
-            setApiCalledSuccess={setApiCalledSuccess}
-          />
+        <button className="favoritesButton"> Home </button>{" "}
+      </a>
+      <div className="favorites-wrapper">
+        <div className="faves-search-background">
+          <form className="search-favorites">
+            <h1 className="favorites-title"> Your Favorites</h1>
+           
+              <input
+                name="searchfavorites"
+                value={filteredState.filteredValue}
+                placeholder="search though favorites"
+                onChange={(event) => {
+                  dispatch({
+                    type: "filterFavorites",
+                    value: event.target.value,
+                  });
+                }}
+              />
+
+              <button className="searchButton" type="submit">
+                {" "}
+                Search{" "}
+              </button>
+          
+          </form>
         </div>
-      </div>
 
-
-      {/* show favorite items */}
-
-      {/* <div className="favorites-wrapper">
-        <h1 className="favorites-title"> Favorites</h1>
-        <form className="search-favorites">
-          <input className="inputHome"
-            name="searchfavorites"
-            value={filteredState.filteredValue}
-            placeholder="search though favorites"
-            onChange={(event) => {
-              dispatch({ type: "filterFavorites", value: event.target.value })
-            }}
-          />
-
-          <button className="searchButton" type="submit"> Search </button>
-        </form>
         <div className="favorites">
           {filteredFavoritesItems && favorites.length > 0
             ? filteredFavoritesItems.map((item) => (
-              <FavoriteItem
-                removeFromFavorites={() => removeFromFavorites(item.id)}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))
-            : null}
+                <FavoriteItem
+                  removeFromFavorites={() => removeFromFavorites(item.id)}
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                />
+              ))
+            : <h1> You don't have any favorites (yet)</h1>}
+            
         </div>
-      </div> */}
+      </div>
+
       {/* {show loading state} */}
 
       {loadingState && (
@@ -204,19 +200,21 @@ const Homepage = () => {
 
       <div className="items">
         {renderRecipes()}
-        {/* {recipes && recipes.length > 0
-          ? recipes.map((item) => (
-              <RecipeItem
-                addToFavorites={() => addToFavorites(item)}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))
-          : null} */}
+        {
+          // /* {recipes && recipes.length > 0
+          //   ? recipes.map((item) => (
+          //       <RecipeItem
+          //         addToFavorites={() => addToFavorites(item)}
+          //         id={item.id}
+          //         image={item.image}
+          //         title={item.title}
+          //       />
+          //     ))
+          //   : null} */
+        }
       </div>
     </div>
   );
 };
 
-export default Homepage;
+export default Favorites;
