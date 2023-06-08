@@ -84,6 +84,7 @@ const Homepage = () => {
       setFavorites(copyFavorites);
       //save the favorites in local storage
       localStorage.setItem("favorites", JSON.stringify(copyFavorites));
+      alert("added to favorites")
     } else {
       alert("Pst.. item already in favorites");
     }

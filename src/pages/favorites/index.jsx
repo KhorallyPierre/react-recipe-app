@@ -153,7 +153,7 @@ const Favorites = () => {
           <form className="search-favorites">
             <h1 className="favorites-title"> Your Favorites</h1>
            
-              <input
+              {/* <input
                 name="searchfavorites"
                 value={filteredState.filteredValue}
                 placeholder="search though favorites"
@@ -169,7 +169,7 @@ const Favorites = () => {
                 {" "}
                 Search{" "}
               </button>
-          
+           */}
           </form>
         </div>
 
