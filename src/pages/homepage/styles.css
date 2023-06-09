@@ -35,15 +35,16 @@
     padding-top: 10px;
     padding-right: 50px;
     padding-bottom: 10px;
-    margin: auto; 
+    margin: auto;
 }
 
 ::placeholder {
     color: grey;
     font-weight: bold;
 }
+
 .searchButton {
-    background-color:rgb(223, 77, 196);
+    background-color: rgb(223, 77, 196);
     padding: 10px 50px;
     color: #fff;
     font-size: 16px;
@@ -54,8 +55,9 @@
     margin-left: 20px;
 
 }
+
 .favoritesButton {
-    background-color:rgb(223, 77, 196);
+    background-color: rgb(223, 77, 196);
     padding: 10px 50px;
     color: #fff;
     font-size: 16px;
@@ -65,10 +67,10 @@
     cursor: pointer;
     margin-left: 20px;
     text-align: right;
-    position:absolute;
-     top:7px;
-     right:7px;
-     
+    position: absolute;
+    top: 7px;
+    right: 7px;
+
 
 }
 
@@ -80,70 +82,74 @@
 .socialLinks {
     text-decoration: none;
     margin-left: 10px;
-    position:absolute;
-        top: 7px;
-        left: 7px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
     float: left;
-    max-width:50%;
-    
+    max-width: 50%;
+
 }
 
 .icons {
     padding-right: 10px;
 }
+
 .searchbarBackground {
-background-image: url("/images/homepageSearchBackground.png");
-background-repeat: no-repeat;
-background-size:cover;
-height: 300px;
-border-radius: 5px;
-width: inherit;
-padding-top: 100px;
-margin-top: 67px;
+    background-image: url("/images/homepageSearchBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    border-radius: 5px;
+    width: inherit;
+    padding-top: 100px;
+    margin-top: 67px;
 }
 
 .homepage-title {
     color: rgb(255, 255, 255);
     font-weight: 700;
-    
+
 
 }
 
 .title-input-container {
- margin: auto;
- max-width: 70%;
+    margin: auto;
+    max-width: 70%;
 }
 
+
 @media (max-width: 1265px) {
-   
+
     .my-favorite-recipes-button-container {
         display: inline-block;
         width: 100%;
         margin-bottom: 30px;
     }
-     .socialLinks {
+
+    .socialLinks {
         display: inline-block;
         width: 100%;
         margin-bottom: 80px;
     }
-    
+
     .home-input {
         padding-right: 100px;
     }
-  
+
 }
 
 @media (max-width: 1087px) {
     #home-input {
         padding-right: 400px;
     }
-} 
+}
 
 @media (max-width: 800px) {
     #home-input {
         padding-right: 200px;
     }
-    #home-input ::placeholder{
+
+    #home-input ::placeholder {
         display: none;
     }
 
@@ -153,5 +159,5 @@ margin-top: 67px;
     #home-input {
         padding-right: 100px;
     }
-  
+
 }
