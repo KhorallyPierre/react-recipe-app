@@ -61,10 +61,7 @@ const Favorites = () => {
         setRecipes(results);
         // when api results are provided
         setApiCalledSuccess(true);
-      } else {
-        // create a recipe not found component to be rendered
-        // <notFound/>
-      }
+      } 
     }
     getRecipes();
   };
@@ -123,14 +120,7 @@ const Favorites = () => {
         ));
         console.log("recipe results", recipeItems);
         return recipeItems;
-      } else if (recipes.length === 0 && apiCalledSuccess) {
-        // console.log(recipes.length === 0, "when recipe is less than 0")
-        // console.log("when api call has been successfully made", apiCalledSuccess)
-        let noResult = "this is fucking awful.sdfsafasd";
-        return <h1>{noResult}</h1>;
-      } else {
-        // return (<h1>{JSON.stringify(recipes)}</h1>)
-      }
+      } 
     }
     // ,[recipes, addToFavorites]
   );
@@ -184,7 +174,6 @@ const Favorites = () => {
                 />
               ))
             : <h1> You don't have any favorites (yet)</h1>}
-            
         </div>
       </div>
 
@@ -200,18 +189,7 @@ const Favorites = () => {
 
       <div className="items">
         {renderRecipes()}
-        {
-          // /* {recipes && recipes.length > 0
-          //   ? recipes.map((item) => (
-          //       <RecipeItem
-          //         addToFavorites={() => addToFavorites(item)}
-          //         id={item.id}
-          //         image={item.image}
-          //         title={item.title}
-          //       />
-          //     ))
-          //   : null} */
-        }
+       
       </div>
     </div>
   );

@@ -90,6 +90,15 @@ const Homepage = () => {
     }
   };
 
+  // const viewRecipe = (getCurrentRecipeItem) => {
+  //   let copyRecipe = [...recipes] 
+  //   const index = copyRecipe.index(
+  //     (item) => item.id === getCurrentRecipeItem.id
+  //   );
+  //   if (index )
+
+  // }
+
   // const removeFromFavorites = (getCurrentId) => {
   //   let copyFavorites = [...favorites];
 

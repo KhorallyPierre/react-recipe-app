@@ -10,9 +10,9 @@ const RecipeItem = (props) =>{
         </div>
         <div className='card-title-buttons'>
         <p> {title} </p>
-        <br/>
+        {/* <br/>
         <button id="addToFaves" type="button" onClick={openDetails}> View recipe </button> 
-        <br/> 
+        <br/>  */}
         <br/> 
 
         <button className="addToFaves" type="button" onClick={addToFavorites}> Add to favorites </button>
