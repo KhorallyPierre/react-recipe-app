@@ -68,7 +68,12 @@
     position:absolute;
      top:7px;
      right:7px;
+     
 
+}
+
+.my-favorite-recipes-button-container {
+    max-width: 50%;
 }
 
 
@@ -79,6 +84,7 @@
         top: 7px;
         left: 7px;
     float: left;
+    max-width:50%;
     
 }
 
@@ -105,7 +111,47 @@ margin-top: 67px;
 
 .title-input-container {
  margin: auto;
+ max-width: 70%;
 }
 
+@media (max-width: 1265px) {
+   
+    .my-favorite-recipes-button-container {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+     .socialLinks {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    
+    .home-input {
+        padding-right: 100px;
+    }
+  
+}
 
+@media (max-width: 1087px) {
+    #home-input {
+        padding-right: 400px;
+    }
+} 
 
+@media (max-width: 800px) {
+    #home-input {
+        padding-right: 200px;
+    }
+    #home-input ::placeholder{
+        display: none;
+    }
+
+}
+
+@media (max-width: 552px) {
+    #home-input {
+        padding-right: 100px;
+    }
+  
+}

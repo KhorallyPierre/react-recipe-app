@@ -90,14 +90,14 @@ const Homepage = () => {
     }
   };
 
-  const removeFromFavorites = (getCurrentId) => {
-    let copyFavorites = [...favorites];
+  // const removeFromFavorites = (getCurrentId) => {
+  //   let copyFavorites = [...favorites];
 
-    copyFavorites = copyFavorites.filter((item) => item.id !== getCurrentId);
+  //   copyFavorites = copyFavorites.filter((item) => item.id !== getCurrentId);
 
-    setFavorites(copyFavorites);
-    localStorage.setItem("favorites", JSON.stringify(copyFavorites));
-  };
+  //   setFavorites(copyFavorites);
+  //   localStorage.setItem("favorites", JSON.stringify(copyFavorites));
+  // };
 
   useEffect(() => {
     const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(
@@ -110,9 +110,9 @@ const Homepage = () => {
 
   // filter through favorites
 
-  const filteredFavoritesItems = favorites.filter((item) =>
-    item.title.toLowerCase().includes(filteredState.filteredValue)
-  );
+  // const filteredFavoritesItems = favorites.filter((item) =>
+  //   item.title.toLowerCase().includes(filteredState.filteredValue)
+  // );
 
   const renderRecipes = useCallback(() => {
     console.log("renderRecipes", recipes)
@@ -124,6 +124,8 @@ const Homepage = () => {
           id={item.id}
           image={item.image}
           title={item.title}
+          ingredients={item.ingredients}
+          instructions= {item.instructions}
 
         />
       ));
@@ -144,17 +146,18 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      <div className="socialLinks"> 
+      <div className="socialLinks" id="socialLinks"> 
        <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
        <a href="https://www.instagram.com/simplyrecipes/?hl=en/"> <img className="icons" src="images/icons8-instagram-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.pinterest.com/natashaskitchen/the-most-popular-recipes-on-pinterest//"> <img className="icons" src="images/icons8-pinterest-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </a>  
       </div>
-     <a href="/favorites"> <button className="favoritesButton"> My Favorite Recipes </button> </a>
+      <div className="my-favorite-recipes-button-container" ><a href="/favorites"> <button className="favoritesButton" id="favoritesButton"> My Favorite Recipes </button> </a> </div>
+     
       <div className="searchbarBackground">
         <div className="title-input-container">
           <h1 className="homepage-title"> Find a Recipe</h1>
-          <Search 
+          <Search
             getDataFromSearchComponent={getDataFromSearchComponent}
             dummydatacopy={dummydata}
             apiCalledSuccess={apiCalledSuccess}

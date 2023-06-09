@@ -1,9 +1,9 @@
-.Search{
+.Search {
     display: flex;
     gap: 20px;
     justify-content: center;
     text-align: left;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .Search input {
@@ -22,17 +22,46 @@
     font-size: 16px;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 2%);
     border-radius: 4px;
-    border-color:rgb(223, 77, 196);
+    border-color: rgb(223, 77, 196);
     cursor: pointer;
 }
 
 form {
 
     overflow: hidden;
-    margin:auto;
-    
+    margin: auto;
+
 }
+
 input {
     max-width: auto;
+
+}
+
+@media (max-width: 1265px) {
+    .home-search-button {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .home-input {
+        width: 50%;
+        display: inline-block;
+        padding-right: 100px;
+    }
+
+
+}
+
+@media (max-width: 552px) {
   
+    #home-search-button {
+        width: 30px;
+        padding-right: 60px;
+        padding-left: 5px;
+    }
+
+    #socialLinks {
+        display: none;
+        }
 }

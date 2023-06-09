@@ -36,13 +36,13 @@ const Search = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className="Search">
-      <input
+      <input className="home-input"id="home-input"
         name="search"
         onChange={handleInputValue}
         value={inputValue}
-        placeholder="What's for dinner?"
+        placeholder="search"
       />
-      <button type="submit"> Search </button>
+      <button className="home-search-button"id="home-search-button"type="submit"> Search </button>
     </form>
   );
 };

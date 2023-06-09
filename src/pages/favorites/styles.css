@@ -92,3 +92,41 @@ width: 600px;
 }
 
 
+
+@media (max-width: 552px) {
+  
+  #favoritesButton {
+
+      padding-right: 60px;
+      
+      position: absolute;
+      right: 59px;
+      text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  
+  #favoritesButton {
+
+      padding-right: 60px;
+      
+      position: absolute;
+      right: 52px;
+      text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+#socialLinks {
+  display: none;
+
+}
+
+#homeButton {
+position: absolute;
+top: 7px;
+right: 115px;
+}
+
+}

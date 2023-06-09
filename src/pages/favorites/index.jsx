@@ -140,13 +140,13 @@ const Favorites = () => {
       {/* show favorite items */}
       <a href="/">
         {" "}
-        <div className="socialLinks"> 
+        <div className="socialLinks" id="socialLinks"> 
        <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
        <a href="https://www.instagram.com/simplyrecipes/?hl=en/"> <img className="icons" src="images/icons8-instagram-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.pinterest.com/natashaskitchen/the-most-popular-recipes-on-pinterest//"> <img className="icons" src="images/icons8-pinterest-64.png" width="36" height="36" alt=""/>  </a> 
        <a href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </a>  
       </div>
-        <button className="favoritesButton"> Home </button>{" "}
+        <button className="favoritesButton" id="homeButton"> Home </button>{" "}
       </a>
       <div className="favorites-wrapper">
         <div className="faves-search-background">
