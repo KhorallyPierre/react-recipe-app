@@ -63,7 +63,7 @@ width: 600px;
 }
 
 .faves-search-background {
-  background-image: url("/images/faves-background.png");
+  /* background-image: url("/images/faves-background.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;

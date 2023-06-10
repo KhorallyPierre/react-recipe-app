@@ -3,9 +3,11 @@ import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
 import FavoriteItem from "../../components/favorite-item";
 import React from "react";
+import recipeDetails from "../../components/recipe-details/recipeDetails";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import { useCallback } from "react";
+import RecipeDetails from "../../components/recipe-details/recipeDetails";
 
 const dummydata = "dummydata";
 
@@ -110,12 +112,13 @@ const Favorites = () => {
     () => {
       console.log("renderRecipes", recipes);
       if (recipes && recipes.length > 0) {
-        let recipeItems = recipes.map((item) => (
+        let recipeItems = recipes.map((recipeItem) => (
           <RecipeItem
-            addToFavorites={() => addToFavorites(item)}
-            id={item.id}
-            image={item.image}
-            title={item.title}
+          openRecipeDetails = {() => openRecipeDetails(recipeItem)}
+            addToFavorites={() => addToFavorites(recipeItem)}
+            id={recipeItem.id}
+            image={recipeItem.image}
+            title={recipeItem.title}
           />
         ));
         console.log("recipe results", recipeItems);
@@ -123,7 +126,13 @@ const Favorites = () => {
       } 
     }
     // ,[recipes, addToFavorites]
+
   );
+
+  const openRecipeDetails = (getCurrentRecipeItem) => {
+    return <RecipeDetails/>
+  
+    }
 
   return (
     <div className="favespage">
@@ -193,6 +202,7 @@ const Favorites = () => {
       </div>
     </div>
   );
+  
 };
 
 export default Favorites;

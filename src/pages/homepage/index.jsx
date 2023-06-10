@@ -4,6 +4,7 @@ import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
 // import FavoriteItem from "../../components/favorite-item";
 import React from "react";
+import RecipeDetails from "../../components/recipe-details/recipeDetails";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import { useCallback } from "react";
@@ -90,14 +91,7 @@ const Homepage = () => {
     }
   };
 
-  // const viewRecipe = (getCurrentRecipeItem) => {
-  //   let copyRecipe = [...recipes] 
-  //   const index = copyRecipe.index(
-  //     (item) => item.id === getCurrentRecipeItem.id
-  //   );
-  //   if (index )
-
-  // }
+  
 
   // const removeFromFavorites = (getCurrentId) => {
   //   let copyFavorites = [...favorites];
@@ -127,14 +121,15 @@ const Homepage = () => {
     console.log("renderRecipes", recipes)
     if (recipes && recipes.length > 0) {
 
-      let recipeItems = recipes.map((item) => (
+      let recipeItems = recipes.map((recipeItem) => (
         <RecipeItem
-          addToFavorites={() => addToFavorites(item)}
-          id={item.id}
-          image={item.image}
-          title={item.title}
-          ingredients={item.ingredients}
-          instructions= {item.instructions}
+          openRecipeDetails = { () =>openRecipeDetails(recipeItem)}
+          addToFavorites={() => addToFavorites(recipeItem)}
+          id={recipeItem.id}
+          image={recipeItem.image}
+          title={recipeItem.title}
+          ingredients={recipeItem.ingredients}
+          instructions= {recipeItem.instructions}
 
         />
       ));
@@ -152,7 +147,13 @@ const Homepage = () => {
   }
     // ,[recipes, addToFavorites]
   );
+  const openRecipeDetails = (selectedRecipeItem) => {
+    return <RecipeDetails/>
+ 
+   }
 
+
+ 
   return (
     <div className="homepage">
       <div className="socialLinks" id="socialLinks"> 
@@ -228,8 +229,11 @@ const Homepage = () => {
             ))
           : null} */}
       </div>
+
+      
     </div>
   );
 };
+
 
 export default Homepage;

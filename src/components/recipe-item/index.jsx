@@ -2,7 +2,7 @@ import './styles.css'
 import React from 'react';
 
 const RecipeItem = (props) => {
-    const { id, image, title, addToFavorites, openDetails } = props;
+    const { id, image, title, addToFavorites, openRecipeDetails } = props;
     return (
         <div key={id} className="recipe-item">
             <div className="example">
