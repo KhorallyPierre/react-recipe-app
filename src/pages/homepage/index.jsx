@@ -123,6 +123,7 @@ const Homepage = () => {
 
       let recipeItems = recipes.map((recipeItem) => (
         <RecipeItem
+      
           openRecipeDetails = { () =>openRecipeDetails(recipeItem)}
           addToFavorites={() => addToFavorites(recipeItem)}
           id={recipeItem.id}
@@ -148,6 +149,8 @@ const Homepage = () => {
     // ,[recipes, addToFavorites]
   );
   const openRecipeDetails = (selectedRecipeItem) => {
+    console.log('recipe details', openRecipeDetails)
+    console.log('selected recipe item', selectedRecipeItem)
     return <RecipeDetails/>
  
    }

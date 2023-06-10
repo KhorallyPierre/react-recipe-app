@@ -144,15 +144,23 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 821px) {
     #home-input {
-        padding-right: 200px;
+        padding-right: 357px;
     }
 
     #home-input ::placeholder {
         display: none;
+
     }
 
+    .title-input-container {
+        max-width: 80%;
+    }
+
+    .Search button {
+        padding: 10px 32px;
+    }
 }
 
 @media (max-width: 552px) {

@@ -130,8 +130,8 @@ const Favorites = () => {
   );
 
   const openRecipeDetails = (getCurrentRecipeItem) => {
+    console.log('clicked', getCurrentRecipeItem)
     return <RecipeDetails/>
-  
     }
 
   return (
@@ -174,12 +174,15 @@ const Favorites = () => {
 
         <div className="favorites">
           {filteredFavoritesItems && favorites.length > 0
-            ? filteredFavoritesItems.map((item) => (
+            ? filteredFavoritesItems.map((recipeItem) => (
                 <FavoriteItem
-                  removeFromFavorites={() => removeFromFavorites(item.id)}
-                  id={item.id}
-                  image={item.image}
-                  title={item.title}
+                onViewRecipeClick  = {() => {
+                    openRecipeDetails(recipeItem)
+                  }}
+                  removeFromFavorites={() => {removeFromFavorites(recipeItem.id)}}
+                  id={recipeItem.id}
+                  image={recipeItem.image}
+                  title={recipeItem.title}
                 />
               ))
             : <h1> You don't have any favorites (yet)</h1>}

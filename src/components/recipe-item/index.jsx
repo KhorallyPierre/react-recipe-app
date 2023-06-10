@@ -8,7 +8,7 @@ const RecipeItem = (props) => {
             <div className="example">
                 <img  src={image} alt="image of recipe" />
                 <div className="content">
-                    <div className="text">View Recipe</div>
+                    <button className="text">View Recipe</button>
                 </div>
             </div>
             <div className='card-title-buttons'>
