@@ -3,11 +3,11 @@ import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
 import FavoriteItem from "../../components/favorite-item";
 import React from "react";
-import recipeDetails from "../../components/recipe-details/recipeDetails";
+import RecipeDetails from "../../components/RecipeDetails";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import { useCallback } from "react";
-import RecipeDetails from "../../components/recipe-details/recipeDetails";
+
 
 const dummydata = "dummydata";
 
@@ -114,7 +114,7 @@ const Favorites = () => {
       if (recipes && recipes.length > 0) {
         let recipeItems = recipes.map((recipeItem) => (
           <RecipeItem
-          openRecipeDetails = {() => openRecipeDetails(recipeItem)}
+          onViewRecipeClick = {() => openRecipeDetails(recipeItem)}
             addToFavorites={() => addToFavorites(recipeItem)}
             id={recipeItem.id}
             image={recipeItem.image}
@@ -129,10 +129,7 @@ const Favorites = () => {
 
   );
 
-  const openRecipeDetails = (getCurrentRecipeItem) => {
-    console.log('clicked', getCurrentRecipeItem)
-    return <RecipeDetails/>
-    }
+
 
   return (
     <div className="favespage">
@@ -177,8 +174,8 @@ const Favorites = () => {
             ? filteredFavoritesItems.map((recipeItem) => (
                 <FavoriteItem
                 onViewRecipeClick  = {() => {
-                    openRecipeDetails(recipeItem)
-                  }}
+                  openRecipeDetails(recipeItem)
+                }}
                   removeFromFavorites={() => {removeFromFavorites(recipeItem.id)}}
                   id={recipeItem.id}
                   image={recipeItem.image}

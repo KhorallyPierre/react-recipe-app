@@ -2,9 +2,8 @@ import Search from "../../components/search";
 import { useState } from "react";
 import "./styles.css";
 import RecipeItem from "../../components/recipe-item";
-// import FavoriteItem from "../../components/favorite-item";
 import React from "react";
-import RecipeDetails from "../../components/recipe-details/recipeDetails";
+import RecipeDetails from "../../components/RecipeDetails";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import { useCallback } from "react";
@@ -26,6 +25,7 @@ const initialState = {
   filteredValue: "",
 };
 const Homepage = () => {
+
   //loading state
   const [loadingState, setLoadingState] = useState(false);
   // save results that we recieve from api
@@ -91,16 +91,7 @@ const Homepage = () => {
     }
   };
 
-  
 
-  // const removeFromFavorites = (getCurrentId) => {
-  //   let copyFavorites = [...favorites];
-
-  //   copyFavorites = copyFavorites.filter((item) => item.id !== getCurrentId);
-
-  //   setFavorites(copyFavorites);
-  //   localStorage.setItem("favorites", JSON.stringify(copyFavorites));
-  // };
 
   useEffect(() => {
     const extractFavoritesFromLocalStorageOnPageLoad = JSON.parse(
@@ -111,36 +102,29 @@ const Homepage = () => {
     }
   }, []);
 
-  // filter through favorites
-
-  // const filteredFavoritesItems = favorites.filter((item) =>
-  //   item.title.toLowerCase().includes(filteredState.filteredValue)
-  // );
+ 
 
   const renderRecipes = useCallback(() => {
-    console.log("renderRecipes", recipes)
+    
     if (recipes && recipes.length > 0) {
 
       let recipeItems = recipes.map((recipeItem) => (
         <RecipeItem
       
-          openRecipeDetails = { () =>openRecipeDetails(recipeItem)}
+          // openRecipeDetails = { () =>openRecipeDetails(recipeItem)}
           addToFavorites={() => addToFavorites(recipeItem)}
           id={recipeItem.id}
           image={recipeItem.image}
           title={recipeItem.title}
-          ingredients={recipeItem.ingredients}
-          instructions= {recipeItem.instructions}
+      
 
         />
       ));
       console.log('recipe results', recipeItems)
       return recipeItems;
     } else if (recipes.length === 0 && apiCalledSuccess) {
-      // console.log(recipes.length === 0, "when recipe is less than 0")
-      // console.log("when api call has been successfully made", apiCalledSuccess)
-      let noResult = "this is fucking awful.sdfsafasd"
-      return (<h1>{noResult}</h1>)
+
+   
     } else {
       // return (<h1>{JSON.stringify(recipes)}</h1>)
     }
@@ -148,16 +132,17 @@ const Homepage = () => {
   }
     // ,[recipes, addToFavorites]
   );
-  const openRecipeDetails = (selectedRecipeItem) => {
-    console.log('recipe details', openRecipeDetails)
-    console.log('selected recipe item', selectedRecipeItem)
-    return <RecipeDetails/>
+  // const openRecipeDetails = (selectedRecipeItem) => {
+  //   console.log('recipe details', openRecipeDetails)
+  //   console.log('selected recipe item', selectedRecipeItem)
+  //   return <RecipeDetails/>
  
-   }
+  //  }
 
 
  
   return (
+    
     <div className="homepage">
       <div className="socialLinks" id="socialLinks"> 
        <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
@@ -177,38 +162,10 @@ const Homepage = () => {
             setApiCalledSuccess={setApiCalledSuccess}
           />
         </div>
+       
       </div>
 
 
-      {/* show favorite items */}
-
-      {/* <div className="favorites-wrapper">
-        <h1 className="favorites-title"> Favorites</h1>
-        <form className="search-favorites">
-          <input className="inputHome"
-            name="searchfavorites"
-            value={filteredState.filteredValue}
-            placeholder="search though favorites"
-            onChange={(event) => {
-              dispatch({ type: "filterFavorites", value: event.target.value })
-            }}
-          />
-
-          <button className="searchButton" type="submit"> Search </button>
-        </form>
-        <div className="favorites">
-          {filteredFavoritesItems && favorites.length > 0
-            ? filteredFavoritesItems.map((item) => (
-              <FavoriteItem
-                removeFromFavorites={() => removeFromFavorites(item.id)}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))
-            : null}
-        </div>
-      </div> */}
       {/* {show loading state} */}
 
       {loadingState && (
@@ -220,6 +177,7 @@ const Homepage = () => {
       {/* {map through all the recipes} */}
 
       <div className="items">
+        
         {renderRecipes()}
         {/* {recipes && recipes.length > 0
           ? recipes.map((item) => (
@@ -232,7 +190,7 @@ const Homepage = () => {
             ))
           : null} */}
       </div>
-
+  x
       
     </div>
   );

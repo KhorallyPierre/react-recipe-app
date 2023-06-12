@@ -95,7 +95,7 @@
 }
 
 .searchbarBackground {
-    /* background-image: url("/images/homepageSearchBackground.png"); */
+    background-image: url("homepageSearchBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 300px;
