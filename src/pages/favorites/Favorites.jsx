@@ -113,7 +113,6 @@ const Favorites = () => {
 
   const renderRecipes = useCallback(
     () => {
-      console.log("renderRecipes", recipes);
       if (recipes && recipes.length > 0) {
         let recipeItems = recipes.map((recipeItem) => (
           <RecipeItem

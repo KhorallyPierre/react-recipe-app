@@ -110,8 +110,7 @@ const Homepage = () => {
 
       let recipeItems = recipes.map((recipeItem) => (
         <RecipeItem
-      
-          // openRecipeDetails = { () =>openRecipeDetails(recipeItem)}
+        
           addToFavorites={() => addToFavorites(recipeItem)}
           id={recipeItem.id}
           image={recipeItem.image}
