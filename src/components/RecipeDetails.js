@@ -2,14 +2,13 @@ import React from "react";
 import "./recipeDetails.css"
 
 function RecipeDetails(props) {
-    console.log(props, 'props')
-    const {setOpenModal} = props;
+     const {closeModal} = props;
    
     return (
-        <div className="detailsBackground"  >
+        <div className="detailsBackground" onClick={() => closeModal(false)} >
             <div className='detailsContainer'>
                 <div className="titleCloseBtn">
-                <button onClick={() => setOpenModal(false)} className='detailsButton'> X </button>
+                    <button onClick={() => closeModal(false)} className='detailsButton'> X </button>
                 </div>
                
                 <div className='title'> 
@@ -19,7 +18,7 @@ function RecipeDetails(props) {
                  <p> list of ingredients</p>
                 </div>
                 <div className='footer'>
-                <button onClick={() => setOpenModal(false)} id="cancelBtn"> Close </button>    
+                   <button onClick={() => closeModal(false)} id="cancelBtn"> Close </button>    
                  </div>
             </div>
 

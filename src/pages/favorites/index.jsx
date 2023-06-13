@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
-import RecipeItem from "../../components/recipe-item";
+import RecipeItem from "../../components/recipe-item/RecipeItem";
 import FavoriteItem from "../../components/favorite-item";
 import React from "react";
 import RecipeDetails from "../../components/RecipeDetails";
@@ -9,7 +9,6 @@ import { useReducer } from "react";
 import { useCallback } from "react";
 
 
-const dummydata = "dummydata";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +25,9 @@ const initialState = {
   filteredValue: "",
 };
 const Favorites = () => {
+
+  // open modal
+  const [openModal, setCloseModal] = useState(false)
   //loading state
   const [loadingState, setLoadingState] = useState(false);
   // save results that we recieve from api
@@ -58,11 +60,12 @@ const Favorites = () => {
 
       if (results) {
         //set the loading state as false again to get data
-        setLoadingState(false);
+       
         /// set the recipes state
         setRecipes(results);
         // when api results are provided
         setApiCalledSuccess(true);
+        setLoadingState(false);
       } 
     }
     getRecipes();
@@ -114,14 +117,13 @@ const Favorites = () => {
       if (recipes && recipes.length > 0) {
         let recipeItems = recipes.map((recipeItem) => (
           <RecipeItem
-          onViewRecipeClick = {() => openRecipeDetails(recipeItem)}
+          onViewRecipeClick = {() => RecipeDetails(recipeItem)}
             addToFavorites={() => addToFavorites(recipeItem)}
             id={recipeItem.id}
             image={recipeItem.image}
             title={recipeItem.title}
           />
         ));
-        console.log("recipe results", recipeItems);
         return recipeItems;
       } 
     }
@@ -134,7 +136,7 @@ const Favorites = () => {
   return (
     <div className="favespage">
       {/* show favorite items */}
-      <a href="/">
+      <div href="/">
         {" "}
         <div className="socialLinks" id="socialLinks"> 
        <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
@@ -143,7 +145,7 @@ const Favorites = () => {
        <a href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </a>  
       </div>
         <button className="favoritesButton" id="homeButton"> Home </button>{" "}
-      </a>
+      </div>
       <div className="favorites-wrapper">
         <div className="faves-search-background">
           <form className="search-favorites">
@@ -174,7 +176,7 @@ const Favorites = () => {
             ? filteredFavoritesItems.map((recipeItem) => (
                 <FavoriteItem
                 onViewRecipeClick  = {() => {
-                  openRecipeDetails(recipeItem)
+                  RecipeDetails(recipeItem)
                 }}
                   removeFromFavorites={() => {removeFromFavorites(recipeItem.id)}}
                   id={recipeItem.id}
@@ -182,7 +184,7 @@ const Favorites = () => {
                   title={recipeItem.title}
                 />
               ))
-            : <h1> You don't have any favorites (yet)</h1>}
+            : <h1> You don't have favorite recipes (yet)</h1>}
         </div>
       </div>
 

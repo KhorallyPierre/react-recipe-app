@@ -5,18 +5,23 @@ import { useState } from 'react';
 import RecipeDetails from '../RecipeDetails';
 
 const RecipeItem = (props) => {
-    const { id, image, title, addToFavorites} = props;
-    const [openModal, setOpenModal] = useState(false)
+    const { id, image, title, addToFavorites } = props;
+    const [openModal, setOpenModal] = useState(false);
     return (
-        
         <div key={id} className="recipe-item">
             <div className="example">
-                <img src={image}  />
-                {openModal && <RecipeDetails closeModal={setOpenModal}/>}
+                <img src={image} />
+                {openModal && <RecipeDetails closeModal={(itClosed)=>{}}/>}
                 <div className="content">
-                    <div className="text" onClick={() => setOpenModal(true)}>View Recipe</div>
+                    <div className="text" onClick={() => {
+                        console.log('modal has been opened', openModal);
+                        setOpenModal(true);
+                        console.log('AFTER IT has been opened', openModal);
+                    }}>View Recipe</div>
+
+
                 </div>
-                
+
             </div>
             <div className='card-title-buttons'>
                 <p> {title} </p>

@@ -1,9 +1,8 @@
 import Search from "../../components/search";
 import { useState } from "react";
 import "./styles.css";
-import RecipeItem from "../../components/recipe-item";
+import RecipeItem from "../../components/recipe-item/RecipeItem";
 import React from "react";
-import RecipeDetails from "../../components/RecipeDetails";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import { useCallback } from "react";
@@ -43,7 +42,7 @@ const Homepage = () => {
   const [filteredState, dispatch] = useReducer(reducer, initialState);
 
   const getDataFromSearchComponent = (getData) => {
-    // keep the loading state as true before we are calling the api
+    // keep the loading state as true before calling the api
     setLoadingState(true);
 
 
@@ -59,12 +58,13 @@ const Homepage = () => {
       const { results } = result;
 
       if (results) {
-        //set the loading state as false again to get data
-        setLoadingState(false);
+        
         /// set the recipes state
         setRecipes(results);
         // when api results are provided
         setApiCalledSuccess(true);
+        //set the loading state as false again to get data
+        setLoadingState(false);
       } else {
         // create a recipe not found component to be rendered
         // <notFound/>
@@ -145,10 +145,10 @@ const Homepage = () => {
     
     <div className="homepage">
       <div className="socialLinks" id="socialLinks"> 
-       <a href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </a>
-       <a href="https://www.instagram.com/simplyrecipes/?hl=en/"> <img className="icons" src="images/icons8-instagram-64.png" width="36" height="36" alt=""/>  </a> 
-       <a href="https://www.pinterest.com/natashaskitchen/the-most-popular-recipes-on-pinterest//"> <img className="icons" src="images/icons8-pinterest-64.png" width="36" height="36" alt=""/>  </a> 
-       <a href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </a>  
+       <button href="https://www.facebook.com/groups/1520825128207154/"> <img className="icons" src="images/icons8-facebook-64.png" width="36" height="36" alt=""/>  </button>
+       <button href="https://www.instagram.com/simplyrecipes/?hl=en/"> <img className="icons" src="images/icons8-instagram-64.png" width="36" height="36" alt=""/>  </button> 
+       <button href="https://www.pinterest.com/natashaskitchen/the-most-popular-recipes-on-pinterest//"> <img className="icons" src="images/icons8-pinterest-64.png" width="36" height="36" alt=""/>  </button> 
+       <button href="https://www.youtube.com/@EssenRezepte"> <img className="icons" src="images/icons8-youtube-64.png" width="36" height="36" alt=""/>  </button>  
       </div>
       <div className="my-favorite-recipes-button-container" ><a href="/favorites"> <button className="favoritesButton" id="favoritesButton"> My Favorite Recipes </button> </a> </div>
      
@@ -168,7 +168,7 @@ const Homepage = () => {
 
       {/* {show loading state} */}
 
-      {loadingState && (
+      {loadingState &&(
         <div className="loading"> Loading Recipes... please wait </div>
       )}
 
