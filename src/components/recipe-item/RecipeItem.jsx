@@ -11,7 +11,7 @@ const RecipeItem = (props) => {
         <div key={id} className="recipe-item">
             <div className="example">
                 <img src={image} />
-                {openModal && <RecipeDetails closeModal={(itClosed)=>{}}/>}
+                {openModal && <RecipeDetails closeModal={setOpenModal}/>}
                 <div className="content">
                     <div className="text" onClick={() => {
                         console.log('modal has been opened', openModal);
