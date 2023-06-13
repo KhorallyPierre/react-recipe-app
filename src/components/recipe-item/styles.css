@@ -33,14 +33,14 @@
 
 }
 
-.example {
+/* .example {
     position: relative;
     padding: 0;
     width: 300px;
     display: block;
     cursor: pointer;
     overflow: hidden;
-}
+} */
 
 .content {
     opacity: 0;

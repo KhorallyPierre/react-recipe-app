@@ -14,9 +14,7 @@ const RecipeItem = (props) => {
                 {openModal && <RecipeDetails closeModal={setOpenModal}/>}
                 <div className="content">
                     <div className="text" onClick={() => {
-                        console.log('modal has been opened', openModal);
                         setOpenModal(true);
-                        console.log('AFTER IT has been opened', openModal);
                     }}>View Recipe</div>
 
 
