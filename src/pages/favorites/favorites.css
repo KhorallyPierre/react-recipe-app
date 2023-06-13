@@ -1,0 +1,145 @@
+.favorites-wrapper {
+  flex-direction: column;
+  display: flex;
+}
+
+.favorites {
+   
+        margin-top: 20px;
+        display: flex;
+        grid-gap: 25px;
+        gap: 25px;
+        margin-bottom: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    
+}
+
+#socialLinks a {
+  text-decoration: none;
+}
+
+
+.items {
+  margin-top: 20px;
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loading {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: rgb(223, 77, 196);
+  text-align: center;
+}
+
+.favorites-title {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.search-favorites input {
+width: 600px;
+  padding-left: 5px;
+
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+}
+
+
+.searchButton {
+  background-color: rgb(223, 77, 196);
+  padding: 10px 50px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 2%);
+  border-radius: 4px;
+  border-color: rgb(223, 77, 196);
+  cursor: pointer;
+  margin: auto;
+}
+
+.faves-search-background {
+  background-image: url("faves-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  border-radius: 5px;
+  width: inherit;
+  padding-top: 100px;
+  margin-top: 67px;
+}
+.favorites-input-and-button {
+    margin: auto;
+
+}
+
+.homepage-title {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-align: center;
+}
+
+.title-input-container {
+  margin: auto;
+}
+
+.inputContainer input {
+  margin:auto;
+  display:block;
+}
+
+.inputContainer button {
+ margin:auto;
+ display: block;
+ margin-top: 10px;
+}
+
+.inputHome{
+  margin: auto;
+}
+@media (max-width: 552px) {
+  
+  #favoritesButton {
+
+      padding-right: 60px;
+      
+      position: absolute;
+      right: 59px;
+      text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  
+  #favoritesButton {
+
+      padding-right: 60px;
+      
+      position: absolute;
+      right: 52px;
+      text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+#socialLinks {
+  display: none;
+
+}
+
+#homeButton {
+position: absolute;
+top: 7px;
+right: 115px;
+}
+
+}
