@@ -56,13 +56,13 @@ function RecipeDetails(props) {
                 <div className='title'>
                     <h2> Ingredients</h2>
                 </div>
-                <ul className='body'>
+                <div className='body'>
 
                     {ingredients.map((element, i) =>
                         //    key tag is needed when mapping inside of jsx (so that ingredients dont get confused with one another)
-                        <li key={i}> {element}</li>
+                        <span key={i}> {i ? '🍴' : ''} {element}  </span>
                     )}
-                </ul>
+                </div>
                 <div className='footer'>
                     <button onClick={() => closeModal(false)} id="cancelBtn"> Close </button>
                 </div>
