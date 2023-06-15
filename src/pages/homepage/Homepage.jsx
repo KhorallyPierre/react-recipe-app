@@ -3,23 +3,12 @@ import "./homepage.css";
 import RecipeItem from "../../components/recipe-item/RecipeItem";
 import React from "react";
 import { useEffect } from "react";
-import { useReducer } from "react";
 import { useCallback } from "react";
 import Search from '../../components/search/Search.jsx'
 
 const dummydata = "dummydata";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "filterFavorites":
-      return {
-        ...state,
-        filteredValue: action.value,
-      };
-    default:
-      return state;
-  }
-};
+
 const initialState = {
   filteredValue: "",
 };
@@ -37,9 +26,6 @@ const Homepage = () => {
 
   const [apiCalledSuccess, setApiCalledSuccess] = useState(false);
 
-  // use reducer functionality
-
-  const [filteredState, dispatch] = useReducer(reducer, initialState);
 
   const getDataFromSearchComponent = (getData) => {
     // keep the loading state as true before calling the api
@@ -187,11 +173,8 @@ const Homepage = () => {
               />
             ))
           : null } 
-          { recipes.length < 0 && (
-        <div className="loading"> no results </div>
-      )}
       </div>
-      
+        {apiCalledSuccess && (<h1>bleh</h1>)}
     </div>
   );
 };

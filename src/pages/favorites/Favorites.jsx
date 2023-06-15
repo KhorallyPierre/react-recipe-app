@@ -9,7 +9,6 @@ import RecipeDetails from "../../components/RecipeDetails";
 import FavoriteItem from '../../components/favorite-item/FavoriteItem.jsx';
 
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "filterFavorites":

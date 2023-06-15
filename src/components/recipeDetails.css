@@ -30,6 +30,7 @@ transform: translate(-50%, -50%);
   display: block;
   text-align: center;
   margin-top: 10px;
+  color: rgb(223, 77, 196);
 }
 
 .titleCloseBtn {
@@ -38,11 +39,13 @@ transform: translate(-50%, -50%);
 }
 
 .titleCloseBtn button {
-  background-color: transparent;
-  border: none;
+  background-color: white;
+  border: 1px solid rgb(223,77, 196);
   font-size: 25px;
   cursor: pointer;
+  color: black;
 }
+
 
 .detailsContainer .body {
   flex: 50%;
@@ -65,7 +68,7 @@ transform: translate(-50%, -50%);
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: cornflowerblue;
+  background-color: rgb(26, 151, 153);
   color: white;
   border-radius: 8px;
   font-size: 20px;

@@ -22,12 +22,14 @@ const RecipeItem = (props) => {
             
             }}
           >
-            View Recipe
+            Ingredient List
           </div>
         </div>
       </div>
       <div className="card-title-buttons">
+        <br/>
         <p> {title} </p>
+        <br/>
         <button className="addToFaves" type="button" onClick={addToFavorites}>
           {" "}
           Add to favorites{" "}
