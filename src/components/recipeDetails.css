@@ -74,3 +74,10 @@ transform: translate(-50%, -50%);
   font-size: 20px;
   cursor: pointer;
 }
+
+#loadingDetails {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: rgb(223, 77, 196);
+  text-align: center;
+}

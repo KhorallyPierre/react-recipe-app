@@ -191,7 +191,6 @@ const Favorites = () => {
         <div className="loading"> Loading Recipes... please wait </div>
       )}
 
-      {/* {show loading state} */}
 
       {/* {map through all the recipes} */}
 

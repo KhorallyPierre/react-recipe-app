@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from 'react';
 import "./recipeDetails.css"
+// import RecipeInstructions from "./RecipeInstructions";
 
 function RecipeDetails(props) {
-    const { closeModal, itemId } = props;
+    const { closeModal, itemId, id } = props;
+    const [openModal, setOpenModal] = useState(false);
     // loading state
     const [loadingState, setLoadingState] = useState(true)
     // save results being recieved from API
@@ -14,8 +15,6 @@ function RecipeDetails(props) {
 
     const getRecipeIngredientsByID = () => {
 
-
-        console.log('id', itemId)
         async function getIngredients(id) {
 
             const apiResponse = await fetch(
@@ -26,7 +25,7 @@ function RecipeDetails(props) {
 
 
             if (result) {
-                console.log(result.oneIngredient, 'ingredient name result')
+                
                 //setLoadState as false again
                 setLoadingState(false)
                 //set the recipe state (done below, I think)
@@ -44,7 +43,6 @@ function RecipeDetails(props) {
     };
     //modify to only make a request once 
     getRecipeIngredientsByID()
-    console.log('ingredients', ingredients)
 
     return (
         <div className="detailsBackground" >
@@ -56,6 +54,11 @@ function RecipeDetails(props) {
                 <div className='title'>
                     <h2> Ingredients</h2>
                 </div>
+                <div>
+                    {loadingState && (
+                        <div id="loadingDetails"> Loading ingredients... please wait </div>
+                    )}
+                </div>
                 <div className='body'>
 
                     {ingredients.map((element, i) =>
@@ -65,6 +68,12 @@ function RecipeDetails(props) {
                 </div>
                 <div className='footer'>
                     <button onClick={() => closeModal(false)} id="cancelBtn"> Close </button>
+                    {/* {openModal && <RecipeInstructions itemId={id} closeModal={setOpenModal} />} */}
+                    {/* <button onClick={() => {
+                       
+                        setOpenModal(true);
+                    }}> Instructions </button> */}
+                 
                 </div>
             </div>
 
