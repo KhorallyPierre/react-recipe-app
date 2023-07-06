@@ -148,7 +148,7 @@ const Favorites = () => {
       <div className="favorites-wrapper">
         <div className="faves-search-background">
           <form className="search-favorites">
-            <h1 className="favorites-title"> Your Favorites</h1>
+            <h1 className="favorites-title"> My Favorites</h1>
             <div className="inputContainer">
               <input
                 name="searchfavorites"
