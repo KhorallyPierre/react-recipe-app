@@ -4,15 +4,15 @@
 }
 
 .favorites {
-   
-        margin-top: 20px;
-        display: flex;
-        grid-gap: 25px;
-        gap: 25px;
-        margin-bottom: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
-    
+
+  margin-top: 20px;
+  display: flex;
+  grid-gap: 25px;
+  gap: 25px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+
 }
 
 #socialLinks a {
@@ -43,7 +43,7 @@
 }
 
 .search-favorites input {
-width: 600px;
+  width: 600px;
   padding-left: 5px;
 
   padding-top: 10px;
@@ -77,8 +77,9 @@ width: 600px;
   padding-top: 100px;
   margin-top: 67px;
 }
+
 .favorites-input-and-button {
-    margin: auto;
+  margin: auto;
 
 }
 
@@ -93,53 +94,53 @@ width: 600px;
 }
 
 .inputContainer input {
-  margin:auto;
-  display:block;
+  margin: auto;
+  display: block;
 }
 
 .inputContainer button {
- margin:auto;
- display: block;
- margin-top: 10px;
+  margin: auto;
+  display: block;
+  margin-top: 10px;
 }
 
-.inputHome{
+.inputHome {
   margin: auto;
 }
+
 @media (max-width: 552px) {
-  
+
   #favoritesButton {
 
-      padding-right: 60px;
-      
-      position: absolute;
-      right: 59px;
-      text-align: center;
+    padding-right: 60px;
+
+    position: absolute;
+    right: 79px;
+    text-align: center;
   }
+
+  .inputContainer input {
+    width: 158px;
+  }
+
 }
 
 @media (max-width: 380px) {
-  
+
   #favoritesButton {
 
-      padding-right: 60px;
-      
-      position: absolute;
-      right: 52px;
-      text-align: center;
+    padding-right: 60px;
+
+    position: absolute;
+    right: 52px;
+    text-align: center;
   }
 }
 
 @media (max-width: 375px) {
-#socialLinks {
-  display: none;
+  #socialLinks {
+    display: none;
 
-}
-
-#homeButton {
-position: absolute;
-top: 7px;
-right: 115px;
-}
+  }
 
 }

@@ -11,7 +11,7 @@ const FavoriteItem = (props) => {
         <div key={id} className="favorite-item">
             <div id="example-image" className="example">
                 <img src={image} alt="recipe" />
-                {openModal && <RecipeDetails closeModal={setCloseModal}/>}
+                {openModal && <RecipeDetails itemId={id} closeModal={setCloseModal}/>}
                 <div  className="content">
                     <div  className="text" onClick={() => setCloseModal(true)}>Ingredient List</div>
                 </div>

@@ -113,6 +113,7 @@ const Favorites = () => {
   const renderRecipes = useCallback(
     () => {
       if (recipes && recipes.length > 0) {
+        console.log('recipes', recipes)
         let recipeItems = recipes.map((recipeItem) => (
           <RecipeItem
             onViewRecipeClick={() => RecipeDetails(recipeItem)}
@@ -152,7 +153,7 @@ const Favorites = () => {
               <input
                 name="searchfavorites"
                 value={filteredState.filteredValue}
-                placeholder="search though favorites"
+                placeholder="filter favorites"
                 onChange={(event) => {
                   dispatch({
                     type: "filterFavorites",
